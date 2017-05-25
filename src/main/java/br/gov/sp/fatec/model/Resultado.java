@@ -7,13 +7,13 @@ import br.gov.sp.fatec.view.View;
 public class Resultado {
 
 	@JsonView({ View.Tudo.class, View.Comum.class })
-	Integer resultado;
-
-	public Integer getResultado() {
+	private Long resultado;
+	
+	public Long getResultado() {
 		return resultado;
 	}
 
-	public void setResultado(Integer resultado) {
+	public void setResultado(Long resultado) {
 		this.resultado = resultado;
 	}
 

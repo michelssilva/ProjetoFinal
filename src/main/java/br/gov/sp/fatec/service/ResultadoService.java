@@ -6,6 +6,6 @@ import br.gov.sp.fatec.model.Resultado;
 
 public interface ResultadoService {
 	
-	public Resultado resultado(List<Integer> inteiros);
+	public Resultado resultado(List<Long> inteiros);
 
 }

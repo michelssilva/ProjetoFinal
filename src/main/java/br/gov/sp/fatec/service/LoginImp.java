@@ -26,17 +26,31 @@ public class LoginImp implements LoginService {
 
 	public Usuario logar(String email, String senha) {
 		Seguranca seguranca = new Seguranca();
-		Usuario usuario = usuarioRepo.findByEmail(email);
+
+		
 		try {
+			Usuario usuario = usuarioRepo.findByEmail(email);
 			if (usuario.getSenha().equals(seguranca.criptografarSenha(senha))) {
 				usuario.setStatus(true);
 				return usuario;
+			} else {
+				usuario.setEmail("");
+				usuario.setSenha("");
+				usuario.setStatus(false);
+				usuario.setId(0L);
+
+				return usuario;
 			}
-		} catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
-			e.printStackTrace();
+		} catch (NoSuchAlgorithmException | UnsupportedEncodingException | NullPointerException e) {
+			Usuario usuario = new Usuario();
+			usuario.setEmail("");
+			usuario.setSenha("");
+			usuario.setStatus(false);
+			usuario.setId(0L);
+
+			return usuario;
 		}
 
-		return null;
 	}
 
 }

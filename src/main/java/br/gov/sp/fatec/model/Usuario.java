@@ -19,29 +19,33 @@ import br.gov.sp.fatec.view.View;
 
 @Entity
 @Table(name = "USU_USUARIO")
-public class Usuario {
+public class Usuario{
 	
+
+
 	@Id
 	@GeneratedValue(generator = "increment")
 	@GenericGenerator(name = "increment", strategy = "increment")
-	@JsonView({View.Tudo.class})
+	@JsonView({ View.Tudo.class })
 	@Column(name = "USU_ID")
 	private Long id;
-	
+
 	@Column(name = "USU_EMAIL", unique = true, length = 30, nullable = false)
-	@JsonView({View.Tudo.class, View.Comum.class})
+	@JsonView({ View.Tudo.class, View.Comum.class })
 	private String email;
-	
+
 	@Column(name = "USU_SENHA", unique = false, length = 300, nullable = false)
 	private String senha;
-	
+
 	@Column(name = "USU_NOME", unique = false, length = 50, nullable = false)
-	@JsonView({View.Tudo.class, View.Comum.class})
+	@JsonView({ View.Tudo.class, View.Comum.class })
 	private String nome;
-	
+
 	@Transient
-	@JsonView({View.Tudo.class, View.Comum.class})
+	@JsonView({ View.Tudo.class, View.Comum.class })
 	private boolean status;
+	
+	
 
 	public boolean isStatus() {
 		return status;

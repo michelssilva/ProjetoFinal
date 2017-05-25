@@ -25,9 +25,9 @@ public class ResultadoImp implements ResultadoService {
 	}
 
 	
-	public Resultado resultado(List<Integer> inteiros) {
+	public Resultado resultado(List<Long> inteiros) {
 
-		Integer resultado = 0;
+		Long resultado = (long) 0;
 		int index = 0;
 
 		List<Questao> questoes = questaoRepo.findAll();

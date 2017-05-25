@@ -26,7 +26,7 @@ public class Opcao {
 	
 	@Column(name = "OP_ALTERNATIVA", unique = false, length = 4, nullable = false)
 	@JsonView({View.Tudo.class, View.Comum.class})
-	private Integer alternativa;
+	private Long alternativa;
 	
 	@Column(name = "OP_CONSUMO", length = 4, nullable = false)
 	private Integer consumo;
@@ -51,11 +51,11 @@ public class Opcao {
 		this.questao = questao;
 	}
 	
-	public Integer getAlternativa() {
+	public Long getAlternativa() {
 		return alternativa;
 	}
 
-	public void setAlternativa(Integer alternativa) {
+	public void setAlternativa(Long alternativa) {
 		this.alternativa = alternativa;
 	}
 	
